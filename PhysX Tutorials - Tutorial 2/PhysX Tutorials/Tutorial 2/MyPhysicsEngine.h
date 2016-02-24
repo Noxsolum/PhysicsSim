@@ -83,10 +83,10 @@ namespace PhysicsEngine
 		//Custom udpate function
 		virtual void CustomUpdate() 
 		{
-			//PxTransform boxPose = ((PxRigidBody*)box->Get())->getGlobalPose();
-			//boxPose.q * PxQuat(1.0f, PxVec3(0.0f, 1.0f, 0.0f));
-			//((PxRigidBody*)box)->setGlobalPose(boxPose);
-			//((PxRigidBody*)box)->addForce(PxVec3(0, 0, -1));
+			PxTransform boxPose = ((PxRigidBody*)box->Get())->getGlobalPose();
+			boxPose.q = boxPose.q * PxQuat(0.1f, PxVec3(0.0f, 1.0f, 0.0f)); //Smaller the angle, slower the rotation
+			((PxRigidBody*)box->Get())->setGlobalPose(boxPose);
+			//((PxRigidBody*)box->Get())->addForce(PxVec3(0.0f, 0.0f, -10.0f));
 		}
 	};
 }
