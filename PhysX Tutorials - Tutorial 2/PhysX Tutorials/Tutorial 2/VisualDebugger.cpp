@@ -54,7 +54,7 @@ namespace VisualDebugger
 		PhysicsEngine::PxInit();
 		scene = new PhysicsEngine::MyScene();
 		scene->Init();
-		scene->GetAllActors()->
+		
 
 		///Init renderer
 		Renderer::BackgroundColor(PxVec3(150.f/255.f,150.f/255.f,150.f/255.f));
@@ -62,8 +62,8 @@ namespace VisualDebugger
 		Renderer::InitWindow(window_name, width, height);
 		Renderer::Init();
 
-		//camera = new Camera(PxVec3(0.0f, 5.0f, 15.0f), PxVec3(0.f,-.1f,-1.f), 5.f);
-		camera = new Camera(PxVec3(0.0f, 20.0f, 0.0f), PxVec3(0.0f, -0.5f, -0.1f), 5.0f);
+		camera = new Camera(PxVec3(0.0f, 5.0f, 15.0f), PxVec3(0.f,-.1f,-1.f), 5.f);
+		//camera = new Camera(PxVec3(0.0f, 20.0f, 0.0f), PxVec3(0.0f, -0.5f, -0.1f), 5.0f);
 
 		//initialise HUD
 		HUDInit();

@@ -4,6 +4,8 @@
 #include <iostream>
 #include <iomanip>
 
+// Add Object Classes here
+
 namespace PhysicsEngine
 {
 	///Plane class
@@ -46,6 +48,12 @@ namespace PhysicsEngine
 		{ 
 			CreateShape(PxBoxGeometry(dimensions), density);
 		}
+
+		//Box(const PxTransform& pose = PxTransform(PxIdentity), PxVec3 dimensions = PxVec3(.5f, .5f, .5f), PxReal density = 1.f, PxVec3 initPos = PxVec3(0.0f, 0.0f, 0.0f), PxVec3 angle = PxVec3(0.0f, 0.0f, 0.0f))
+		//	: DynamicActor(pose)
+		//{
+
+		//}
 	};
 
 	class Capsule : public DynamicActor
@@ -61,17 +69,14 @@ namespace PhysicsEngine
 	class CompoundObject : public DynamicActor
 	{
 	public:
-		//a Box with default parameters:
-		// - pose in 0,0,0
-		// - dimensions: 1m x 1m x 1m
-		// - denisty: 1kg/m^3
+
 		CompoundObject(const PxTransform& pose = PxTransform(PxIdentity), PxVec3 dimensions = PxVec3(.5f, .5f, .5f), PxReal density = 1.f)
 			: DynamicActor(pose)
 		{
 			CreateShape(PxBoxGeometry(dimensions), density);
 			CreateShape(PxBoxGeometry(dimensions), density);
-			GetShape(0)->setLocalPose(PxTransform(PxVec3(1.0f, 0.0f, 0.0f)));
-			GetShape(1)->setLocalPose(PxTransform(PxVec3(-1.0f, 0.0f, 0.0f)));
+			GetShape(0)->setLocalPose(PxTransform(PxVec3(0.5f, 0.0f, 0.0f)));
+			GetShape(1)->setLocalPose(PxTransform(PxVec3(-0.5f, 0.0f, 0.0f)));
 		}
 	};
 

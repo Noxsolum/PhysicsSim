@@ -36,7 +36,7 @@ namespace PhysicsEngine
 		}
 	};
 
-	///Custom scene class
+	//Spawn Shit here
 	class MyScene : public Scene
 	{
 		Plane* plane;
@@ -49,6 +49,7 @@ namespace PhysicsEngine
 		///A custom scene class
 		void SetVisualisation()
 		{
+
 			px_scene->setVisualizationParameter(PxVisualizationParameter::eSCALE, 1.0f);
 			px_scene->setVisualizationParameter(PxVisualizationParameter::eCOLLISION_SHAPES, 1.0f);
 		}
@@ -64,25 +65,28 @@ namespace PhysicsEngine
 			plane->Color(PxVec3(210.f/255.f,210.f/255.f,210.f/255.f));
 			Add(plane);
 
-			sphere = new Sphere(PxTransform(PxVec3(0.0f, 0.0f, 0.0f)));
+			box = new Box(PxTransform(PxVec3(0.0f, 0.5f, 0.0f), PxQuat(0.0f, PxVec3(0.0f, 0.0f, 0.0f))));
 			boxtwo = new Box(PxTransform(PxVec3(0.0f, 0.0f, 10.0f)));
-			box = new Box(PxTransform(PxVec3(-10.0f, 0.f, 0.0f)));
+			sphere = new Sphere(PxTransform(PxVec3(0.0f, 0.0f, 0.0f)));
 			obj = new CompoundObject(PxTransform(PxVec3(10.0f, 0.0f, 0.0f)));
 			box->Color(color_palette[0]);
 			boxtwo->Color(color_palette[1]);
-			obj->Color(color_palette[2]);
-			//obj(0)->Color(color_palette[2]);
-			//obj(1)->Color(color_palette[3]);
+			obj->Color(color_palette[2], 0);
+			obj->Color(color_palette[3], 1);
 			sphere->Color(color_palette[4]);
 			Add(box);
-			Add(boxtwo);
-			Add(obj);
-			Add(sphere);
+			//Add(boxtwo);
+			//Add(obj);
+			//Add(sphere);
 		}
 
 		//Custom udpate function
 		virtual void CustomUpdate() 
 		{
+			//PxTransform boxPose = ((PxRigidBody*)box->Get())->getGlobalPose();
+			//boxPose.q * PxQuat(1.0f, PxVec3(0.0f, 1.0f, 0.0f));
+			//((PxRigidBody*)box)->setGlobalPose(boxPose);
+			//((PxRigidBody*)box)->addForce(PxVec3(0, 0, -1));
 		}
 	};
 }
